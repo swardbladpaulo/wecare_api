@@ -10,7 +10,7 @@ RSpec.describe 'POST /api/foodbags', type: :request do
     end
 
     it 'is expected to return a success message' do
-      expect(response_json['message'].to eq 'Your foodbag was successfully created!')
+      expect(response_json['message']).to eq 'Your foodbag was successfully created!'
     end
   end
 end

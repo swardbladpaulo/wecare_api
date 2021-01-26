@@ -1,0 +1,2 @@
+class Foodbag < ApplicationRecord
+end
