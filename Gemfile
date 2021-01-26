@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
-git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+git_source(:github) do |repo_name|
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  "https://github.com/#{repo_name}.git"
+end
 
 ruby '2.5.1'
 
@@ -11,14 +14,15 @@ gem 'rack-cors', require: 'rack/cors'
 
 group :development, :test do
   gem 'pry-rails'
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry-byebug'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'factory_bot_rails'
-  gem 'coveralls', require: false
+  gem 'coveralls',  require:  false
 end
 
 group :development do
   gem 'listen', '~> 3.3'
   gem 'spring'
+    gem 'spring-watcher-listen', '~> 2.0.0'
 end

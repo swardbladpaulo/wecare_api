@@ -1,39 +1,39 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/AnnFlismark/Craft_Academy/wecare_api/app/mailers/application_mailer.rb": [
+      "/home/mihai/Week11/wecare_api/app/channels/application_cable/connection.rb": [
         0,
         0,
         0,
         0
       ],
-      "/Users/AnnFlismark/Craft_Academy/wecare_api/app/models/application_record.rb": [
+      "/home/mihai/Week11/wecare_api/app/channels/application_cable/channel.rb": [
+        0,
         0,
         0,
         0
       ],
-      "/Users/AnnFlismark/Craft_Academy/wecare_api/app/jobs/application_job.rb": [
+      "/home/mihai/Week11/wecare_api/app/jobs/application_job.rb": [
         0,
         null,
         0
       ],
-      "/Users/AnnFlismark/Craft_Academy/wecare_api/app/controllers/application_controller.rb": [
-        0,
-        0
-      ],
-      "/Users/AnnFlismark/Craft_Academy/wecare_api/app/channels/application_cable/connection.rb": [
-        0,
+      "/home/mihai/Week11/wecare_api/app/models/application_record.rb": [
         0,
         0,
         0
       ],
-      "/Users/AnnFlismark/Craft_Academy/wecare_api/app/channels/application_cable/channel.rb": [
+      "/home/mihai/Week11/wecare_api/app/controllers/application_controller.rb": [
+        0,
+        0
+      ],
+      "/home/mihai/Week11/wecare_api/app/mailers/application_mailer.rb": [
         0,
         0,
         0,
         0
       ]
     },
-    "timestamp": 1611604931
+    "timestamp": 1611657273
   }
 }
