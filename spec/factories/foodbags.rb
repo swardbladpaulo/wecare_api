@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :foodbag do
-    pickup_time { 1 }
-    status { 1 }
+    pickuptime { :morning }
+    status { :available }
     association :donor
   end
 end
