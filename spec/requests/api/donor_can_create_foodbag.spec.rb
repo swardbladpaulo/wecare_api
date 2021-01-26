@@ -1,4 +1,4 @@
-Rspec.describe 'POST/api/foodbags', type: :request do
+RSpec.describe 'POST/api/foodbags', type: :request do
 
   describe 'successfully create a foodbag' do
     before do
