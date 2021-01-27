@@ -5,8 +5,8 @@ RSpec.describe 'POST /api/foodbags', type: :request do
       post '/api/foodbags', {
         params: {
           foodbag: {
-            pickuptime: :morning,
-            status: :available,
+            pickuptime: "morning",
+            status: "available",
             donor_id: donor.id
           }
         }
@@ -27,7 +27,7 @@ RSpec.describe 'POST /api/foodbags', type: :request do
         params: {
           foodbag: {
             pickuptime: '',
-            status: :available,
+            status: "available",
             donor_id: donor.id
           }
         }
@@ -48,7 +48,7 @@ RSpec.describe 'POST /api/foodbags', type: :request do
       post '/api/foodbags', {
         params: {
           foodbag: {
-            pickuptime: :evening,
+            pickuptime: "evening",
             status: '',
             donor_id: donor.id
 
