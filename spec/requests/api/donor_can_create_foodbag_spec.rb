@@ -1,5 +1,5 @@
 RSpec.describe 'POST /api/foodbags', type: :request do
-  let(:donor) { create(:donor)}
+  let(:donor) { create(:user)}
   describe 'successfully create a foodbag' do
     before do
       post '/api/foodbags', {

@@ -13,6 +13,6 @@ class Api::FoodbagsController < ApplicationController
   private
 
   def foodbag_params
-    params.require(:foodbag).permit(:pickuptime, :status, :donor)
+    params.require(:foodbag).permit(:pickuptime, :status)
   end
 end
