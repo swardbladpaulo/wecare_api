@@ -9,6 +9,9 @@ class Api::FoodbagsController < ApplicationController
       end
     end
 
+    
+    private
+
     def foodbag_params
       params.require(:foodbag).permit(:pickuptime, :status)
       
