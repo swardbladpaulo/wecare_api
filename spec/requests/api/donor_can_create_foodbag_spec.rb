@@ -1,16 +1,17 @@
 RSpec.describe 'POST /api/foodbags', type: :request do
   let(:donor) { create(:user)}
+  let(:headers) { donor.create_new_auth_token }
   describe 'successfully create a foodbag' do
     before do
-      post '/api/foodbags', {
+      post '/api/foodbags', 
         params: {
           foodbag: {
             pickuptime: "morning",
             status: "available",
             donor_id: donor.id
           }
-        }
-      }
+        },
+        headers: headers
     end
 
     it 'is expected to return a 201' do
