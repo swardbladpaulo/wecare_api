@@ -7,8 +7,8 @@ RSpec.describe 'POST /api/foodbags', type: :request do
            params: {
              foodbag: {
                pickuptime: 'morning',
-               status: 'available',
-               
+               status: 'available'
+
              }
            },
            headers: headers
@@ -28,8 +28,8 @@ RSpec.describe 'POST /api/foodbags', type: :request do
            params: {
              foodbag: {
                pickuptime: '',
-               status: 'available',
-               
+               status: 'available'
+
              }
            },
            headers: headers
@@ -50,8 +50,8 @@ RSpec.describe 'POST /api/foodbags', type: :request do
            params: {
              foodbag: {
                pickuptime: 'evening',
-               status: '',
-               
+               status: ''
+
              }
            },
            headers: headers
@@ -72,7 +72,7 @@ RSpec.describe 'POST /api/foodbags', type: :request do
            params: {
              foodbag: {
                pickuptime: 'evening',
-               status: 'available',
+               status: 'available'
              }
            }
     end

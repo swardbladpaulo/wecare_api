@@ -1,19 +1,19 @@
 class User < ActiveRecord::Base
   extend Devise::Models
 
-  after_initialize :set_default_role, if: :new_record?   
+  after_initialize :set_default_role, if: :new_record?
 
   enum role: %i[donor]
 
-  has_many :foodbags, foreign_key: "donor_id"
+  has_many :foodbags, foreign_key: 'donor_id'
 
   devise :database_authenticatable, :registerable,
-            :recoverable, :rememberable, :validatable
-  include DeviseTokenAuth::Concerns::User 
+         :recoverable, :rememberable, :validatable
+  include DeviseTokenAuth::Concerns::User
 
-  private 
+  private
 
-  def set_default_role 
+  def set_default_role
     self.role ||= :donor
-  end 
+  end
 end

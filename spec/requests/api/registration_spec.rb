@@ -4,13 +4,13 @@ RSpec.describe 'POST /api/auth', type: :request do
   describe 'with valid credentials' do
     before do
       post '/api/auth',
-          params: {
-            email: 'donor@donor.com',
-            password: '123456',
-            password_confirmation: '123456',
-            role: 'donor'
-          },
-          headers: headers
+           params: {
+             email: 'user_becomes@donor.com',
+             password: '123456',
+             password_confirmation: '123456',
+             role: 'donor'
+           },
+           headers: headers
     end
 
     it 'returns a 200 response status' do
@@ -26,12 +26,12 @@ RSpec.describe 'POST /api/auth', type: :request do
     describe 'a non-matching password confirmation' do
       before do
         post '/api/auth',
-            params: {
-              email: 'donor@donor.com',
-              password: '123456',
-              password_confirmation: '12345678'
-            },
-            headers: headers
+             params: {
+               email: 'user_becomes@donor.com',
+               password: '123456',
+               password_confirmation: '12345678'
+             },
+             headers: headers
       end
 
       it 'returns a 422 response status' do
@@ -46,12 +46,12 @@ RSpec.describe 'POST /api/auth', type: :request do
     describe 'an invalid email address' do
       before do
         post '/api/auth',
-            params: {
-              email: 'randomuserrandomuser.com',
-              password: '123456',
-              password_confirmation: '123456'
-            },
-            headers: headers
+             params: {
+               email: 'randomuserrandomuser.com',
+               password: '123456',
+               password_confirmation: '123456'
+             },
+             headers: headers
       end
 
       it 'returns a 422 response status' do
@@ -64,16 +64,16 @@ RSpec.describe 'POST /api/auth', type: :request do
     end
 
     describe 'an already registered email' do
-      let!(:registered_user) { create(:user, email: 'donor@donor.com') }
+      let!(:registered_user) { create(:user, email: 'user_becomes@donor.com') }
 
       before do
         post '/api/auth',
-            params: {
-              email: 'donor@donor.com',
-              password: '123456',
-              password_confirmation: '123456'
-            },
-            headers: headers
+             params: {
+               email: 'user_becomes@donor.com',
+               password: '123456',
+               password_confirmation: '123456'
+             },
+             headers: headers
       end
 
       it 'returns a 422 response status' do

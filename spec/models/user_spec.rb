@@ -4,7 +4,7 @@ RSpec.describe User, type: :model do
       expect(create(:user)).to be_valid
     end
     it 'is expected to have a valid user factory bot' do
-      expect(create(:user, email: 'donor@donor.com')).to be_valid
+      expect(create(:user, email: 'user_becomes@donor.com')).to be_valid
     end
   end
   describe 'is expected to have db colums' do
