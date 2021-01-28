@@ -52,7 +52,6 @@ RSpec.describe 'POST /api/foodbags', type: :request do
                pickuptime: 'evening',
                status: '',
                donor_id: donor.id
-
              }
            },
            headers: headers
@@ -75,7 +74,6 @@ RSpec.describe 'POST /api/foodbags', type: :request do
                pickuptime: 'evening',
                status: 'available',
                donor_id: 'Test donor'
-
              }
            }
     end
