@@ -16,7 +16,7 @@ Bundler.require(*Rails.groups)
 
 module WecareApi
   class Application < Rails::Application
-    config.load_defaults 6.1
+    config.load_defaults 6.0
     config.api_only = true
     config.generators do |generate|
       generate.helper false
