@@ -1,4 +1,6 @@
-RSpec.describe 'Sucessfully', type: :request do 
+RSpec.describe 'Api::ProfilePageController', type: :request do 
+
+  describe 'Sucessfully'do
   describe 'User can view profie page'
   let(:user) { create (:user)}
   let(:user_credentials) { user.create_new_auth_token} 
@@ -29,7 +31,7 @@ RSpec.describe 'Sucessfully', type: :request do
   it 'is expected to return donors city' do 
     expect(response_json['donor']['city']).to eq 'Kiruna'
   end
-
+end
 end
   
  
