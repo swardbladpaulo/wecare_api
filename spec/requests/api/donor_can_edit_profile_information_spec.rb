@@ -7,7 +7,7 @@ RSpec.describe 'Api::UserController', type: :request do
       let(:user_headers) { { HTTP_ACCEPT: 'application/json' }.merge!(user_credentials) }
 
       before do
-        post "/api/user/#{user.id}", headers: user_headers
+        patch "/api/user/#{user.id}", headers: user_headers
       end
 
       it 'returns a 200 response status' do
