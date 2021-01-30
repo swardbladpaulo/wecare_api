@@ -1,5 +1,5 @@
 class Api::FoodbagsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:create]
 
   def create
     foodbag = current_user.foodbags.create(foodbag_params)
@@ -8,6 +8,11 @@ class Api::FoodbagsController < ApplicationController
     else
       render json: { message: foodbag.errors.full_messages.to_sentence }, status: 422
     end
+  end
+
+  def index
+    foodbags = Foodbag.all
+    render json: foodbags, each_serializer: FoodbagsIndexSerializerSerializer
   end
 
   private
