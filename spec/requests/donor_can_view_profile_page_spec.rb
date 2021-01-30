@@ -19,7 +19,7 @@ RSpec.describe 'Api::UserController', type: :request do
     expect(response_json['adress']).to eq 'Mangovägen 22'
   end
   it 'is expected to return donors zipcode' do 
-    expect(response_json['zipcode']).to eq '41522'
+    expect(response_json['zipcode']).to eq 41522
   end
   it 'is expected to return donors city' do 
     expect(response_json['city']).to eq 'Kiruna'
@@ -27,9 +27,3 @@ RSpec.describe 'Api::UserController', type: :request do
 end
 end
 end
-  
- 
-
- 
-
-  

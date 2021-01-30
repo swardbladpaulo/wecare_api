@@ -5,7 +5,7 @@ FactoryBot.define do
     password_confirmation { '123456' }
     company_name { 'Netto' }
     adress { 'Mangovägen 22' }
-    zipcode { '41522' }
+    zipcode { 41522 }
     city { 'Kiruna' }
     
     factory :donor do
