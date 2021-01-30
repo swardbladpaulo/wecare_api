@@ -3,5 +3,6 @@ Rails.application.routes.draw do
  
   namespace :api do
     resources :foodbags, only: [:index, :show, :create]
+    resources only: [:show, :create]
   end
 end
