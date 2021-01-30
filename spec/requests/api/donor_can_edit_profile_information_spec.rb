@@ -10,7 +10,7 @@ RSpec.describe 'Api::UserController', type: :request do
             params: {
               company_name: 'Netto',
               adress: 'Bananvägen 258',
-              zipcode: '45678',
+              zipcode: 45678,
               city: 'Kiruna'
             }, headers: user_headers
       end
@@ -26,7 +26,7 @@ RSpec.describe 'Api::UserController', type: :request do
         expect(response_json['adress']).to eq 'Bananvägen 258'
       end
       it 'is expected to return updated zipcode' do
-        expect(response_json['zipcode']).to eq '45678'
+        expect(response_json['zipcode']).to eq 45678
       end
       it 'is expected to return updated city' do
         expect(response_json['city']).to eq 'Kiruna'
