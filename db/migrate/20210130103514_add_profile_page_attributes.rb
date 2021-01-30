@@ -3,7 +3,7 @@ class AddProfilePageAttributes < ActiveRecord::Migration[6.0]
     change_table :users do |t|
       t.string :adress
       t.string :zipcode
-      t.string :name
+      t.string :company_name
       t.string :city
     end 
   end 

@@ -48,6 +48,10 @@ ActiveRecord::Schema.define(version: 2021_01_30_103514) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "role", default: 0
+    t.string "adress"
+    t.string "zipcode"
+    t.string "company_name"
+    t.string "city"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
