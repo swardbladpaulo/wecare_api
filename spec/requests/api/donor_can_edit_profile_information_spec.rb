@@ -7,12 +7,12 @@ RSpec.describe 'Api::UserController', type: :request do
 
       before do
         put "/api/user/#{user.id}",
-              params: {
-                company_name: 'Netto',
-                adress: 'Bananvägen 258',
-                zipcode: '45678',
-                city: 'Kiruna'
-              }, headers: user_headers
+            params: {
+              company_name: 'Netto',
+              adress: 'Bananvägen 258',
+              zipcode: '45678',
+              city: 'Kiruna'
+            }, headers: user_headers
       end
 
       it 'returns a 200 response status' do
@@ -30,6 +30,36 @@ RSpec.describe 'Api::UserController', type: :request do
       end
       it 'is expected to return updated city' do
         expect(response_json['city']).to eq 'Kiruna'
+      end
+
+      describe 'Unsuccessfully' do
+        describe 'Cannot update profile with wrong information' do
+          before do
+            put "/api/user/#{user.id}",
+                params: {
+                  company_name: '',
+                  adress: '',
+                  zipcode: '',
+                  city: ''
+                }, headers: user_headers
+          end
+
+          it 'is expected to respond 400' do
+            expect(response).to have_http_status 400
+          end
+          it 'is expected to not be empty' do
+            expect(response_json['company_name']).to_not eq ''
+          end
+          it 'is expected to not be empty' do
+            expect(response_json['adress']).to_not eq ''
+          end
+          it 'is expected to not be empty' do
+            expect(response_json['zipcode']).to_not eq ''
+          end
+          it 'is expected to not be empty' do
+            expect(response_json['city']).to_not eq ''
+          end
+        end
       end
     end
   end
