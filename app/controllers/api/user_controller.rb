@@ -1,7 +1,6 @@
 class Api::UserController < ApplicationController
   before_action :authenticate_user!
   before_action :find_resource
-  # validates_presence_of  :user, :company_name
 
   def show
     render json: @user_profile
@@ -17,14 +16,6 @@ class Api::UserController < ApplicationController
       render json: { message: 'wrong wrong wrong' }
     end
   end
-  # def update
-  #   if @user_profile.persisted?
-  #     @user_profile.update(user_profile_params)
-  #     render json: @user_profile
-  #   else
-  #     render json: { message: 'There has been an error' }
-  #   end
-  # end
 
   private
 
