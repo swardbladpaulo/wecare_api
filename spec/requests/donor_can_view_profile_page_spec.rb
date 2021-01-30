@@ -29,3 +29,4 @@ RSpec.describe 'Api::UserController', type: :request do
     end
   end
 end
+
