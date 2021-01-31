@@ -6,17 +6,12 @@ class Api::UserController < ApplicationController
     render json: @user_profile, serializer: UserUpdateSerializer
   end
 
-  # def index
-  #   render json: user
-  # end
-
   def update
     if user_profile_params.value?('')
       render json: { message: ' Fields cannod be empty' }, status: 400
     elsif @user_profile.persisted?
-      @user_profile[:image] = attach_image(@user_profile)
+      attach_image(@user_profile)
       @user_profile.update(user_profile_params)
-      @user_profile.save
       render json: @user_profile, serializer: UserUpdateSerializer
     else
       render json: { message: 'wrong wrong wrong' }

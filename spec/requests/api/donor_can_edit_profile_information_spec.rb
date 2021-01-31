@@ -41,6 +41,11 @@ RSpec.describe 'Api::UserController', type: :request do
         expect(response_json['user']['city']).to eq 'Kiruna'
       end
 
+      it 'user has image attached to it' do
+        user = User.where(company_name: response.request.params['company_name'])
+        expect(user.first.image.attached?).to eq true
+      end
+
       describe 'Unsuccessfully' do
         describe 'Cannot update profile with wrong information' do
           before do
