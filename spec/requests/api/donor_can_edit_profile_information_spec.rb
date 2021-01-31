@@ -5,6 +5,14 @@ RSpec.describe 'Api::UserController', type: :request do
       let(:user_credentials) { user.create_new_auth_token }
       let(:user_headers) { { HTTP_ACCEPT: 'application/json' }.merge!(user_credentials) }
 
+      # let(:image) do
+      #   {
+      #     type: 'application/png',
+      #     encoder: 'name=donor_logo.png:base64',
+      #     data: 'DJHBDLKJFBSDJBSKJDABLKAJDBVLKJADBVLADJBVLJAH',
+      #     extension: 'png'
+      #   }
+      # end
       before do
         put "/api/user/#{user.id}",
             params: {
