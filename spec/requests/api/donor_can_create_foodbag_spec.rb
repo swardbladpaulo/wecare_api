@@ -8,7 +8,6 @@ RSpec.describe 'POST /api/foodbags', type: :request do
              foodbag: {
                pickuptime: 'morning',
                status: 'available'
-
              }
            },
            headers: headers
