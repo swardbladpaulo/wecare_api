@@ -4,7 +4,7 @@ RSpec.describe 'POST /api/foodbags', type: :request do
   describe 'successfully create a foodbag' do
     before do
       post '/api/foodbags',
-           params: {
+          params: {
              foodbag: {
                pickuptime: 'morning',
                status: 'available'

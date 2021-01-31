@@ -3,12 +3,12 @@ class Api::UserController < ApplicationController
   before_action :find_resource
 
   def show
-    render json: @user_profile
+    render json: @user_profile, serializer: UserUpdateSerializer
   end
 
-  def index
-    render json: user
-  end
+  # def index
+  #   render json: user
+  # end
 
   def update
     if user_profile_params.value?('')
