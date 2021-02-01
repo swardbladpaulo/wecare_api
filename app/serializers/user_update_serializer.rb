@@ -3,11 +3,6 @@ class UserUpdateSerializer < ActiveModel::Serializer
 
   def image
     return nil unless object.image.attached?
-
-    if Rails.env.test?
-      ActiveStorage::Blob.service.path_for(object.image.key)
-    else
-      object.image.service_url(expires_in: 1.hour, disposition: 'inline')
-    end
+    object.image_path
   end
 end
