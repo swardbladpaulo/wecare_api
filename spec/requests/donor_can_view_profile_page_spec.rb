@@ -15,16 +15,16 @@ RSpec.describe 'Api::UserController', type: :request do
       end
 
       it 'is expected to return donors company name' do
-        expect(response_json['company_name']).to eq 'Netto'
+        expect(response_json['user']['company_name']).to eq 'Netto'
       end
       it 'is expected to return donors adress' do
-        expect(response_json['adress']).to eq 'Mangovägen 22'
+        expect(response_json['user']['adress']).to eq 'Mangovägen 22'
       end
       it 'is expected to return donors zipcode' do
-        expect(response_json['zipcode']).to eq 41522
+        expect(response_json['user']['zipcode']).to eq 41522
       end
       it 'is expected to return donors city' do
-        expect(response_json['city']).to eq 'Kiruna'
+        expect(response_json['user']['city']).to eq 'Kiruna'
       end
     end
   end
