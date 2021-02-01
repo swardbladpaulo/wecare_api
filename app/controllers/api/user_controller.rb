@@ -12,6 +12,7 @@ class Api::UserController < ApplicationController
     elsif @user_profile.persisted?
       attach_image(@user_profile)
       @user_profile.update(user_profile_params)
+      @user_profile.save
       render json: @user_profile, serializer: UserUpdateSerializer
     else
       render json: { message: 'wrong wrong wrong' }
