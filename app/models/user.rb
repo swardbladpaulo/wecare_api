@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 
   after_initialize :set_default_role, if: :new_record?
 
-  enum role: %i[donor]
+  enum role: %i[donor recipient]
 
   has_many :foodbags, foreign_key: 'donor_id'
   has_one_attached :image
