@@ -11,5 +11,9 @@ FactoryBot.define do
     factory :donor do
       role { :donor }
     end
+
+    factory :recipient do
+      role { :recipient }
+    end
   end
 end

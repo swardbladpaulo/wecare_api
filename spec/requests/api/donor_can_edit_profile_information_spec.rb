@@ -5,13 +5,22 @@ RSpec.describe 'Api::UserController', type: :request do
       let(:user_credentials) { user.create_new_auth_token }
       let(:user_headers) { { HTTP_ACCEPT: 'application/json' }.merge!(user_credentials) }
 
+      let(:image) do
+        {
+          type: 'application/png',
+          encoder: 'name=donor_logo.png:base64',
+          data: 'DJHBDLKJFBSDJBSKJDABLKAJDBVLKJADBVLADJBVLJAH',
+          extension: 'png'
+        }
+      end
       before do
         put "/api/user/#{user.id}",
             params: {
-              company_name: 'Netto',
+              company_name: 'Netto55',
               adress: 'Bananvägen 258',
-              zipcode: 45678,
-              city: 'Kiruna'
+              zipcode: 45_678,
+              city: 'Kiruna',
+              image: image
             }, headers: user_headers
       end
 
@@ -20,16 +29,21 @@ RSpec.describe 'Api::UserController', type: :request do
       end
 
       it 'is expected to return updated company name' do
-        expect(response_json['company_name']).to eq 'Netto'
+        expect(response_json['user']['company_name']).to eq 'Netto55'
       end
       it 'is expected to return updated adress' do
-        expect(response_json['adress']).to eq 'Bananvägen 258'
+        expect(response_json['user']['adress']).to eq 'Bananvägen 258'
       end
       it 'is expected to return updated zipcode' do
-        expect(response_json['zipcode']).to eq 45678
+        expect(response_json['user']['zipcode']).to eq 45_678
       end
       it 'is expected to return updated city' do
-        expect(response_json['city']).to eq 'Kiruna'
+        expect(response_json['user']['city']).to eq 'Kiruna'
+      end
+
+      it 'user has image attached to it' do
+        user = User.where(company_name: response.request.params['company_name'])
+        expect(user.first.image.attached?).to eq true
       end
 
       describe 'Unsuccessfully' do
