@@ -44,11 +44,6 @@ ActiveRecord::Schema.define(version: 2021_01_31_205034) do
     t.integer "donor_id", null: false
   end
 
-  create_table "profiles", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "provider", default: "email", null: false
     t.string "uid", default: "", null: false

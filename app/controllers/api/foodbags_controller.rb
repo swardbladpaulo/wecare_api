@@ -1,5 +1,5 @@
 class Api::FoodbagsController < ApplicationController
-  before_action :authenticate_user!, only: [:create]
+  before_action :authenticate_user!, only: %i[create index]
 
   def create
     foodbag = current_user.foodbags.create(foodbag_params)
