@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   enum role: %i[donor recipient]
 
   has_many :foodbags, foreign_key: 'donor_id'
+  has_many :foodbags, foreign_key: 'recipient_id'
   has_one_attached :image
 
   devise :database_authenticatable, :registerable,

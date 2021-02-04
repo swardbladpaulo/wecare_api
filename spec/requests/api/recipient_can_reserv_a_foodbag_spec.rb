@@ -23,7 +23,7 @@ RSpec.describe 'PUT /api/foodbags/:id', type: :request do
     end
 
     it 'is expected to belong to the current user' do
-      expect(foodbag.reload.user_id).to eq recipient.id
+      expect(foodbag.reload.recipient_id).to eq recipient.id
     end
   end
 end

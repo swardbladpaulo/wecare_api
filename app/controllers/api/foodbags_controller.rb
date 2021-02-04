@@ -17,9 +17,8 @@ class Api::FoodbagsController < ApplicationController
 
   def update
     foodbag = Foodbag.find(params["id"])
-    foodbag.update(status: params["foodbag"]["status"])
+    foodbag.update(status: params["foodbag"]["status"], recipient_id: current_user.id)
     render json: { message: 'Your foodbag is reserved!' }
-    # binding.pry
   end
   private
 
