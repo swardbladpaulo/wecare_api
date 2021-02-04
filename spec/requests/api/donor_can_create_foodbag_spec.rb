@@ -7,7 +7,7 @@ RSpec.describe 'POST /api/foodbags', type: :request do
            params: {
              foodbag: {
                pickuptime: 'morning'
-
+               #  donor_id: donor.id
              }
            },
            headers: headers
@@ -38,29 +38,7 @@ RSpec.describe 'POST /api/foodbags', type: :request do
     end
 
     it 'is expected to return a error message' do
-      expect(response_json['message']).to eq "Pickuptime can't be blank and Donor must exist"
-    end
-  end
-
-  describe 'unsuccessfully create a foodbag without status available' do
-    before do
-      post '/api/foodbags',
-           params: {
-             foodbag: {
-               pickuptime: 'evening',
-               status: ''
-
-             }
-           },
-           headers: headers
-    end
-
-    it 'is expected to return a 422' do
-      expect(response).to have_http_status 422
-    end
-
-    it 'is expected to return a error message' do
-      expect(response_json['message']).to eq "Status can't be blank and Donor must exist"
+      expect(response_json['message']).to eq "Pickuptime can't be blank"
     end
   end
 
