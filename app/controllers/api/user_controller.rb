@@ -13,7 +13,7 @@ class Api::UserController < ApplicationController
     elsif @user_profile.persisted?
 
       attach_image(@user_profile)
-      binding.pry
+ 
       @user_profile.update(user_profile_params)
       @user_profile.save
       render json: @user_profile, serializer: UserUpdateSerializer
@@ -32,7 +32,7 @@ class Api::UserController < ApplicationController
   end
 
   def user_profile_params
-    params.permit(:company_name, :adress, :city, :zipcode, :image)
+    params.permit(:company_name, :adress, :city, :zipcode, :image, :id)
   end
 
   def find_resource
