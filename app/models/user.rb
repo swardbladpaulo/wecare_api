@@ -3,9 +3,10 @@ class User < ActiveRecord::Base
 
   after_initialize :set_default_role, if: :new_record?
 
-  enum role: %i[donor]
+  enum role: %i[donor recipient]
 
   has_many :foodbags, foreign_key: 'donor_id'
+  has_many :foodbags, foreign_key: 'recipient_id'
   has_one_attached :image
 
   devise :database_authenticatable, :registerable,
@@ -15,10 +16,10 @@ class User < ActiveRecord::Base
   def image_path
     Rails.env.test? ? ActiveStorage::Blob.service.path_for(image.key) : image.service_url(expires_in: 1.hour, disposition: 'inline')
   end
-  end
+end
 
   private
 
-  def set_default_role
-    self.role ||= :donor
-  end
+def set_default_role
+  self.role ||= :donor
+end
