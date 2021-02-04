@@ -1,5 +1,5 @@
 class Api::FoodbagsController < ApplicationController
-  before_action :authenticate_user!, only: %i[create index]
+  before_action :authenticate_user! 
 
   def create
     foodbag = current_user.foodbags.create(foodbag_params)
@@ -15,9 +15,15 @@ class Api::FoodbagsController < ApplicationController
     render json: foodbags, each_serializer: FoodbagsIndexSerializerSerializer
   end
 
+  def update
+    foodbag = Foodbag.find(params["id"])
+    foodbag.update(status: params["foodbag"]["status"])
+    render json: { message: 'Your foodbag is reserved!' }
+    # binding.pry
+  end
   private
 
   def foodbag_params
-    params.require(:foodbag).permit(:pickuptime, :status)
+    params.require(:foodbag).permit(:pickuptime, :status, :donor_id)
   end
 end
