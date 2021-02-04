@@ -17,7 +17,6 @@ class Api::UserController < ApplicationController
       @user_profile.update(user_profile_params)
       @user_profile.save
       render json: @user_profile, serializer: UserUpdateSerializer
-      binding.pry
     else
       render json: { message: 'Something went wrong' }
     end
