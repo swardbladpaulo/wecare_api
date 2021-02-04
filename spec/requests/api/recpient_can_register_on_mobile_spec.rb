@@ -5,13 +5,13 @@ RSpec.describe 'POST /api/auth', type: :request do
   describe 'with valid credentials' do
     before do
       post '/api/auth',
-          params: {
-            email: 'user_becomes@recipient.com',
-            password: '123456',
-            password_confirmation: '123456',
-            role: 'recipient'
-          },
-          headers: headers
+           params: {
+             email: 'user_becomes@recipient.com',
+             password: '123456',
+             password_confirmation: '123456',
+             role: 'recipient'
+           },
+           headers: headers
     end
 
     it 'returns a 200 response status' do

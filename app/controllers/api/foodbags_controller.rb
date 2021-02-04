@@ -1,6 +1,5 @@
 class Api::FoodbagsController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :index]
-
+  before_action :authenticate_user!, only: %i[create index]
 
   def create
     foodbag = current_user.foodbags.create(foodbag_params)
@@ -22,9 +21,3 @@ class Api::FoodbagsController < ApplicationController
     params.require(:foodbag).permit(:pickuptime, :status)
   end
 end
-
-# def is_user_recipient?
-#   unless current_user.recipient?
-#     render json: { message: 'You are not authorized to create an article.' }, status: 401
-#   end
-# end
