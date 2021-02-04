@@ -7,9 +7,11 @@ class Api::UserController < ApplicationController
   end
 
   def update
+          binding.pry
     if user_profile_params.value?('')
       render json: { message: ' Fields can not be empty' }, status: 400
     elsif @user_profile.persisted?
+      binding.pry
       attach_image(@user_profile)
       @user_profile.update(user_profile_params)
       @user_profile.save
