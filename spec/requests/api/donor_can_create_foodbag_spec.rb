@@ -7,7 +7,6 @@ RSpec.describe 'POST /api/foodbags', type: :request do
            params: {
              foodbag: {
                pickuptime: 'morning'
-               #  donor_id: donor.id
              }
            },
            headers: headers

@@ -37,7 +37,7 @@ RSpec.describe 'PUT /api/foodbags/:id', type: :request do
           }
     end
 
-    it 'ist expected ro return a 401' do
+    it 'is expected to return a 401' do
       expect(response).to have_http_status 401
     end
 
