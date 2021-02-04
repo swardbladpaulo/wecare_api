@@ -1,13 +1,13 @@
 RSpec.describe 'POST /api/foodbags', type: :request do
-  let(:donor) { create(:user) }
+  let(:donor) { create(:donor) }
   let(:headers) { donor.create_new_auth_token }
   describe 'successfully create a foodbag' do
     before do
       post '/api/foodbags',
-          params: {
+           params: {
              foodbag: {
-               pickuptime: 'morning',
-               status: 'available'
+               pickuptime: 'morning'
+
              }
            },
            headers: headers
@@ -26,8 +26,7 @@ RSpec.describe 'POST /api/foodbags', type: :request do
       post '/api/foodbags',
            params: {
              foodbag: {
-               pickuptime: '',
-               status: 'available'
+               pickuptime: ''
 
              }
            },
@@ -39,7 +38,7 @@ RSpec.describe 'POST /api/foodbags', type: :request do
     end
 
     it 'is expected to return a error message' do
-      expect(response_json['message']).to eq "Pickuptime can't be blank"
+      expect(response_json['message']).to eq "Pickuptime can't be blank and Donor must exist"
     end
   end
 
@@ -61,7 +60,7 @@ RSpec.describe 'POST /api/foodbags', type: :request do
     end
 
     it 'is expected to return a error message' do
-      expect(response_json['message']).to eq "Status can't be blank"
+      expect(response_json['message']).to eq "Status can't be blank and Donor must exist"
     end
   end
 

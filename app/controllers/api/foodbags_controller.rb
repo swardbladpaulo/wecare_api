@@ -1,8 +1,8 @@
 class Api::FoodbagsController < ApplicationController
-  before_action :authenticate_user! 
+  before_action :authenticate_user!
 
   def create
-    foodbag = current_user.foodbags.create(foodbag_params)
+    foodbag = Foodbag.create(pickuptime: params['foodbag']['pickuptime'], doner_id: current_user.id)
     if foodbag.persisted?
       render json: { message: 'Your foodbag was successfully created!' }, status: 201
     else
@@ -16,13 +16,16 @@ class Api::FoodbagsController < ApplicationController
   end
 
   def update
-    foodbag = Foodbag.find(params["id"])
-    foodbag.update(status: params["foodbag"]["status"], recipient_id: current_user.id)
-    render json: { message: 'Your foodbag is reserved!' }
+    foodbag = Foodbag.find(params['id'])
+    foodbag.update(status: params['foodbag']['status'], recipient_id: current_user.id)
+    if foodbag.save
+      render json: { message: 'Your foodbag is reserved!' }
+    else
+      render json: { message: foodbag.errors.full_messages.to_sentence }, status: 422
+    end
   end
-  private
 
-  def foodbag_params
-    params.require(:foodbag).permit(:pickuptime, :status, :donor_id)
-  end
+  # def foodbag_params
+  #   params.require(:foodbag).permit(:pickuptime)
+  # end
 end
