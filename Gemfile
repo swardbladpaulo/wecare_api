@@ -10,6 +10,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'rack-cors', require: 'rack/cors'
 gem 'devise_token_auth'
 gem 'active_model_serializers'
+gem 'aws-sdk-s3'
 
 group :development, :test do
   gem 'pry-rails'
