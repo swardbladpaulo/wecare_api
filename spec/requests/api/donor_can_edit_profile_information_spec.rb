@@ -15,7 +15,7 @@ RSpec.describe 'Api::UserController', type: :request do
       end
       before do
         put "/api/user/#{user.id}",
-            params: {
+            params: { 
               company_name: 'Netto55',
               adress: 'Bananvägen 258',
               zipcode: 45_678,

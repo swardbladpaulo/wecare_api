@@ -11,6 +11,7 @@ gem 'rack-cors', require: 'rack/cors'
 gem 'devise_token_auth'
 gem 'active_model_serializers'
 gem 'aws-sdk-s3'
+gem 'msgpack', '~> 1.4', '>= 1.4.2'
 
 group :development, :test do
   gem 'pry-rails'
