@@ -7,15 +7,16 @@ class Api::UserController < ApplicationController
   end
 
   def update
-
+    user = User.find(params[:id])
     if user_profile_params.value?('')
       render json: { message: 'Fields can not be empty' }, status: 400
     elsif @user_profile.persisted?
-
-      attach_image(@user_profile)
- 
-      @user_profile.update(user_profile_params)
-      @user_profile.save
+binding.pry
+      # @user_profile.update(user_profile_params)
+      # @user_profile.save
+      binding.pry
+      attach_image(user)
+      binding.pry
       render json: @user_profile, serializer: UserUpdateSerializer
     else
       render json: { message: 'Something went wrong' }
@@ -24,11 +25,11 @@ class Api::UserController < ApplicationController
 
   private
 
-  def attach_image(_user_profile_params)
-  
+  def attach_image(user)
     params_image = params[:image]
-    DecodeService.attach_image(params_image, @user_profile.image) if params_image.present?
-
+    binding.pry
+    DecodeService.attach_image(params_image, user.image) if params_image.present?
+binding.pry
   end
 
   def user_profile_params
