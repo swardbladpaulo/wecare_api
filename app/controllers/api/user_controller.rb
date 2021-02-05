@@ -8,12 +8,10 @@ class Api::UserController < ApplicationController
 
   def update
     user = User.find(params[:id])
-   
     if user_profile_params.value?('')
       render json: { message: 'Fields can not be empty' }, status: 400
     elsif user.update(user_profile_params)
       attach_image(user) if params[:image]
-      
       render json: user, serializer: UserUpdateSerializer
     else
       render json: { message: 'Something went wrong' }
